@@ -4,23 +4,12 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title></title>
+    <title>TechKnowPro</title>
      <link href="Content/bootstrap.min.css" rel="stylesheet" />
      <link rel="stylesheet" type="text/css" href="CSS_Ext/Registration.css" />
-
     <script src="Scripts/jquery-3.0.0.min.js"></script>
     <script src="Scripts/bootstrap.min.js"></script>
-    <style type="text/css">
-        
-        .auto-style1 {
-            width: 248px;
-
-        }
-        .auto-style2 {
-            width: 362px;
-        }
-        
-    </style>
+    
 </head>
 <body>
 
@@ -36,6 +25,7 @@
            
             <div class="auto-style7">
             <asp:ValidationSummary ID="ValidationSummary1" runat="server" Width="717px" ForeColor="Red" ValidationGroup="vg" />
+            <asp:Label ID="lblSuccOrErr" runat="server" ForeColor="#CC0000"></asp:Label>            
             </div>
         
         <table class="auto-style22 homebg">
@@ -43,23 +33,27 @@
                 <td class="auto-style1">
                     <asp:Label ID="Label2" runat="server" Text="Firstname: "></asp:Label>
                     <asp:TextBox ID="txtFN" runat="server" Width="143px" class="textbox"></asp:TextBox>
+                    <asp:RegularExpressionValidator ID="rvAlphabetOnly" ControlToValidate="txtFN" runat="server" ErrorMessage="Enter alphabets only <br /> and do not leave space after firstname" ValidationExpression="^[a-zA-Z]+(\s[a-zA-Z]+)?$" ForeColor="Red" ValidationGroup="vg">*</asp:RegularExpressionValidator>
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtFN" Display="Dynamic" ErrorMessage="First Name is required" ForeColor="Red" ValidationGroup="vg">*</asp:RequiredFieldValidator>
+
                 </td>
                 <td>
                     <asp:Label ID="Label3" runat="server" Text="Lastname: "></asp:Label>
                     <asp:TextBox ID="txtLN" runat="server" Width="164px" class="textbox"></asp:TextBox>
+                    <asp:RegularExpressionValidator ID="RegularExpressionValidator2" ControlToValidate="txtLN" runat="server" ErrorMessage="Enter alphabets only <br /> and do not leave space after lastname" ValidationExpression="^[a-zA-Z]+(\s[a-zA-Z]+)?$" ForeColor="Red" ValidationGroup="vg">*</asp:RegularExpressionValidator>
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txtLN" Display="Dynamic" ErrorMessage="Last Name is required" ForeColor="Red" ValidationGroup="vg">*</asp:RequiredFieldValidator>
                 </td>
             </tr>
-            </asp:Table>
-            <table class="auto-style22">
-                <td class="auto-style26">
-                    &nbsp;Address:</td>
-                <td>
-                    <asp:TextBox ID="txtAddr" runat="server" Width="409px" style="margin-left: 10px" class="textbox"></asp:TextBox>
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="txtAddr" Display="Dynamic" ErrorMessage="Address is required" ForeColor="Red" ValidationGroup="vg">*</asp:RequiredFieldValidator>
-                   </td>
-            </tr></asp:Table>
+                </table>
+                <table class="auto-style22">
+                    <td class="auto-style26">
+                        &nbsp;Address:</td>
+                    <td>
+                        <asp:TextBox ID="txtAddr" runat="server" Width="409px" style="margin-left: 10px" class="textbox"></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="txtAddr" Display="Dynamic" ErrorMessage="Address is required" ForeColor="Red" ValidationGroup="vg">*</asp:RequiredFieldValidator>
+                    </td>
+                </table>
+          
             <table class="auto-style22">
                 <tr>
                 <td class="auto-style25">
@@ -80,7 +74,6 @@
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="txtPass1" Display="Dynamic" ErrorMessage="Password required" ForeColor="Red" ValidationGroup="vg">*</asp:RequiredFieldValidator>
                     <asp:CompareValidator ID="CompareValidator1" runat="server" ErrorMessage="User must enter the same password" ControlToCompare="txtPass1" ControlToValidate="txtPass2" ForeColor="Red" ValidationGroup="vg">*</asp:CompareValidator>
                     <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="txtPass1" ErrorMessage="Password length must be from 6 - 12 characters!" ForeColor="Red" ValidationExpression="^.{6,12}$" ValidationGroup="vg">*</asp:RegularExpressionValidator>
-                    <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ControlToValidate="txtPass1" ErrorMessage="Password must contain an uppercase letter!" ForeColor="Red" ValidationExpression="^(?=.*[A-Z])(?=.*[0-9])[a-zA-Z0-9]+$">*</asp:RegularExpressionValidator>
                 </td>
             </tr>
             <tr>
@@ -114,7 +107,6 @@
                     &nbsp;</td>
                 <td class="auto-style2">
                    &nbsp;<asp:CheckBox ID="cbAgree" runat="server" BorderStyle="None" />&nbsp;<asp:Label ID="Label8" runat="server" Text="I agree to the"></asp:Label>&nbsp;
-                    <%--<asp:HyperLink href="TermsServices.aspx" ID="HyperLink1" runat="server" BorderColor="#A9AEB1" >terms of service</asp:HyperLink>--%>
                     <asp:LinkButton ID="LinkButton1" runat="server" BorderColor="#A9AEB1" OnClick="LinkButton1_Click" CausesValidation="False">terms of service</asp:LinkButton>
                 </td>
             </tr>
@@ -123,8 +115,7 @@
                     &nbsp;</td>
                 <td class="auto-style2">
                     &nbsp;
-                    <asp:Label ID="lblSuccOrErr" runat="server" Text=""></asp:Label>
-                </td>
+                                    </td>
             </tr>
             <tr>
                 <td class="auto-style23">&nbsp;</td>

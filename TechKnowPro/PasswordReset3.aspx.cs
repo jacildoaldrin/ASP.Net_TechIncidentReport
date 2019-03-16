@@ -6,6 +6,7 @@ using System.Text;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using TechKnowPro.Model;
 
 namespace TechKnowPro
 {
@@ -14,12 +15,25 @@ namespace TechKnowPro
         protected void Page_Load(object sender, EventArgs e)
         {
             UnobtrusiveValidationMode = UnobtrusiveValidationMode.None;
+
+            //redirect if accessed illegaly
+            if (Session["userId"] == null) { Response.Redirect("~/Login.aspx"); }
         }
 
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
-            //hash password then add to session variable
-            Session["password"] = hashPassword(txtPassword1.Text);
+            lblErr.Text = "";
+            //validate password
+            PasswordValidator pv = new PasswordValidator(txtPassword1.Text);
+            if (!pv.isValid())
+            {
+                lblErr.Text = "Password is missing at least 1 uppercase<br/> and 1 special character";
+                return;
+            }
+
+            //password hashing
+            Hasher hashP = new Hasher(txtPassword1.Text);
+            Session["password"] = hashP.getHashedPassword();
             sdsPassword.Update();
             //disable buttons and form
             txtPassword1.Enabled = false;
@@ -30,19 +44,9 @@ namespace TechKnowPro
             Session.Clear();
         }
 
-        public string hashPassword(string password)
+        protected void lkbhead_Click(object sender, EventArgs e)
         {
-            SHA256 sha256 = SHA256Managed.Create();
-            byte[] bytes = Encoding.UTF8.GetBytes(password);
-            byte[] hash = sha256.ComputeHash(bytes);
-            //convert hash to string
-            StringBuilder result = new StringBuilder();
-            for (int i = 0; i < hash.Length; i++)
-            {
-                result.Append(hash[i].ToString("X2"));
-            }
-            //store hash string to session to update database
-            return result.ToString();
+            Server.Transfer("Login.aspx");
         }
     }
 }

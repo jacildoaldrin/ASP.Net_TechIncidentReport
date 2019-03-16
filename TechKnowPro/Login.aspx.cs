@@ -1,4 +1,23 @@
-﻿using System;
+﻿/* COMP 2139 Assignment 1
+ Project Name: TeckKnowPro - Tech Incident Management Web App
+ Date of Submission: March 15, 2019
+ Prof.: Sergio Santilli
+
+ System coded by:
+ Team: Fork-night
+ Members:
+            1. Aldrin Jacildo - 101112293
+            2. Francis Victa - 101159185
+            3. Maria Lilian Yang - 101151657
+            4. Sir Angel Naguit - 101152749
+            5. Orell Steven Wemin - 101091788
+
+ Project tools:
+ IDE: Microsoft Visual Studio Ver. 2017
+      -ASP.NET with SQL Server
+ others: Github, Draw.io
+ */
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;

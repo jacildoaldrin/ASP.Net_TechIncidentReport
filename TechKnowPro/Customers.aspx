@@ -4,10 +4,9 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title></title>
+    <title>TechKnowPro</title>
      <link href="Content/bootstrap.min.css" rel="stylesheet" />
-         <link rel="stylesheet" type="text/css" href="CSS_Ext/Home.css">
-
+     <link rel="stylesheet" type="text/css" href="CSS_Ext/Home.css" />
     <script src="Scripts/jquery-3.0.0.min.js"></script>
     <script src="Scripts/bootstrap.min.js"></script>
     <style type="text/css">
@@ -34,17 +33,17 @@
         <div>
             <table class="w-100">
                 <tr>
-                    <td><h1 class="myH1">TechKnow Pro - Incident Report Management Software</h1></td>
+                    <td><asp:LinkButton ID="lkb" runat="server" OnClick="lkb_Click" Font-Underline="False" CausesValidation="False" ForeColor="#F0A15B"><h1 class="myH1">TechKnow Pro - Incident Report Management Software</h1></asp:LinkButton></td>
                     <td><asp:Button ID="btnLogout" runat="server" Text="Logout" OnClick="btnLogout_Click" class="btn btn-outline-warning" CausesValidation="False" /></td>
                 </tr>
             </table>
-    <br />
-            <hr class="myHr">
+            <br />
+            <hr class="myHr" />
+            <h2>Customer - Search and view your customer contact information</h2>
+            <br />
             <div class="homebg">
-                <h3><strong>Customer - Search and view your customer contact information</strong></h3>
             </div>
             <div class="homebg">
-
                 <table class="auto-style1">
                     <tr>
                         <td>
@@ -108,17 +107,14 @@
                             <br />
                             <asp:Label ID="lblSuccess" runat="server" Text=""></asp:Label>
                             <asp:HiddenField ID="hfCustId" runat="server" />
-                            <asp:HiddenField ID="hfDescription" runat="server" />
-                            
+                            <asp:HiddenField ID="hfDescription" runat="server" />                    
                         </td>
                     </tr>
                 </table>
-
             </div>
-        
         </div>
     </form>
-      <br />
+     <br />
      <br />
      <br />
      <br />
@@ -128,9 +124,8 @@
      <br />
      <br />
     <div class="td">
-    <hr class="myHr">
+    <hr class="myHr" />
     @2019 - COMP2139 - Techknow Pro
-
     </div>
         <br />
     <br />

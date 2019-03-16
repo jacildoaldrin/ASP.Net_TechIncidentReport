@@ -4,90 +4,23 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title></title>
+    <title>TechKnowPro</title>
      <link href="Content/bootstrap.min.css" rel="stylesheet" />
-     <link rel="stylesheet" type="text/css" href="CSS_Ext/ViewSurvey.css">
-
+     <link rel="stylesheet" type="text/css" href="CSS_Ext/ViewSurvey.css" />
     <script src="Scripts/jquery-3.0.0.min.js"></script>
     <script src="Scripts/bootstrap.min.js"></script>
-    <style type="text/css">
-        .auto-style1 {
-            width: 100%;
-        }
-        .auto-style2 {
-            width: 250px;
-        }
-        .auto-style4 {
-            width: 250px;
-            height: 23px;
-        }
-        .auto-style6 {
-            height: 23px;
-            width: 361px;
-        }
-        .auto-style7 {
-            width: 250px;
-            height: 30px;
-        }
-        .auto-style9 {
-            height: 30px;
-            width: 361px;
-        }
-        .auto-style10 {
-            width: 449px;
-        }
-        .auto-style11 {
-            width: 449px;
-            height: 30px;
-        }
-        .auto-style12 {
-            width: 449px;
-            height: 23px;
-        }
-        .auto-style13 {
-            width: 288px;
-        }
-        .auto-style14 {
-            width: 288px;
-            height: 30px;
-        }
-        .auto-style15 {
-            width: 288px;
-            height: 23px;
-        }
-        .auto-style16 {
-            width: 361px;
-        }
-        .auto-style17 {
-            width: 250px;
-            height: 90px;
-        }
-        .auto-style18 {
-            width: 449px;
-            height: 90px;
-        }
-        .auto-style19 {
-            width: 288px;
-            height: 90px;
-        }
-        .auto-style20 {
-            height: 90px;
-            width: 361px;
-        }
-        </style>
 </head>
 <body>
     <form id="form1" runat="server">
         <div>
             <table class="w-100">
                 <tr>
-                    <td><h1 class="myH1">TechKnow Pro - Incident Report Management Software</h1></td>
+                    <td><asp:LinkButton ID="lkb" runat="server" OnClick="lkb_Click" Font-Underline="False" CausesValidation="False" ForeColor="#F0A15B"><h1 class="myH1">TechKnow Pro - Incident Report Management Software</h1></asp:LinkButton></td>
                     <td><asp:Button ID="btnLogout" runat="server" Text="Logout" OnClick="btnLogout_Click" class="btn btn-outline-warning" /></td>
                 </tr>
             </table>
             <br />
-            <hr class="myHr">
-             </h1>
+            <hr class="myHr" />
             <h2>View Survey</h2>
             </div>
         <div class="homebg">
@@ -101,7 +34,6 @@
                     </td>
                 <td class="auto-style10">
                     <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT * , [lastname] + ', ' + [firstname] as quer FROM [customers]"></asp:SqlDataSource>
-                    <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="DropDownList1" ErrorMessage="This Field is Required " ForeColor="#CC0000" InitialValue="-- Select Customer --"></asp:RequiredFieldValidator>--%>
                 </td>
                 <td class="auto-style13">Customer Id:&nbsp;&nbsp;
                     <asp:TextBox ID="TextBox1" runat="server" enabled="false" CssClass="textbox2"></asp:TextBox>
@@ -195,7 +127,7 @@
     </form>
        <br />
     <div class="td">
-    <hr class="myHr">
+    <hr class="myHr" />
     @2019 - COMP2139 - Techknow Pro
 
     </div>
