@@ -34,7 +34,7 @@ namespace TechKnowPro
             PasswordValidator pv = new PasswordValidator(txtPass1.Text);
             if (!pv.isValid())
             {
-                lblSuccOrErr.Text = "Password is missing at least 1 uppercase<br/> and 1 special character";
+                lblSuccOrErr.Text = "Password must contain least 1 uppercase<br/> and 1 special character";
                 return;
             }
 
@@ -137,10 +137,7 @@ namespace TechKnowPro
             ClientScript.RegisterStartupScript(this.GetType(), "JSScript", sb.ToString());
         }
 
-        protected void btnBack_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("~/Registration.aspx");
-        }
+        
     }
 
 }
